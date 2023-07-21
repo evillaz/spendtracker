@@ -1,5 +1,5 @@
 class CategorySpendsController < ApplicationController
-  before_action :set_category_spend, only: %i[ show edit update destroy ]
+  before_action :set_category_spend, only: %i[show edit update destroy]
 
   # GET /category_spends or /category_spends.json
   def index
@@ -7,8 +7,7 @@ class CategorySpendsController < ApplicationController
   end
 
   # GET /category_spends/1 or /category_spends/1.json
-  def show
-  end
+  def show; end
 
   # GET /category_spends/new
   def new
@@ -16,8 +15,7 @@ class CategorySpendsController < ApplicationController
   end
 
   # GET /category_spends/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /category_spends or /category_spends.json
   def create
@@ -25,7 +23,9 @@ class CategorySpendsController < ApplicationController
 
     respond_to do |format|
       if @category_spend.save
-        format.html { redirect_to category_spend_url(@category_spend), notice: "Category spend was successfully created." }
+        format.html do
+          redirect_to category_spend_url(@category_spend), notice: 'Category spend was successfully created.'
+        end
         format.json { render :show, status: :created, location: @category_spend }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,9 @@ class CategorySpendsController < ApplicationController
   def update
     respond_to do |format|
       if @category_spend.update(category_spend_params)
-        format.html { redirect_to category_spend_url(@category_spend), notice: "Category spend was successfully updated." }
+        format.html do
+          redirect_to category_spend_url(@category_spend), notice: 'Category spend was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @category_spend }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +54,20 @@ class CategorySpendsController < ApplicationController
     @category_spend.destroy
 
     respond_to do |format|
-      format.html { redirect_to category_spends_url, notice: "Category spend was successfully destroyed." }
+      format.html { redirect_to category_spends_url, notice: 'Category spend was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category_spend
-      @category_spend = CategorySpend.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def category_spend_params
-      params.fetch(:category_spend, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category_spend
+    @category_spend = CategorySpend.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def category_spend_params
+    params.fetch(:category_spend, {})
+  end
 end
