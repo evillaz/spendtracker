@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spendtracker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= turbo_frame_tag "modal" %>
+    <%= yield %>
+    <% if user_signed_in? %>
+      <div class="buttons">
+        <button class="btn">
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" }, id: "sign-out-link" %>
+        </button>
+        <%= link_to "← Go Back", "javascript:history.back()", class:"btn" %>
+      </div>
+    <% end %>
+  </body>
+</html>
