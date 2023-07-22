@@ -1,2 +1,7 @@
-<div id="<%= dom_id spend %>">
+<div class="element spend f r">
+  <div class="left-block f c">
+    <h3><%= spend.name %></h3>
+    <span><%= spend.created_at.strftime('%d/%m/%Y') %></span>
+  </div>
+  <span>$<%= spend.amount %>0</span>
 </div>
