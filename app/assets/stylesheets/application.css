@@ -13,3 +13,103 @@
  *= require_tree .
  *= require_self
  */
+@font-face {
+  font-family: "Proxima Nova Bold";
+  src: url('/assets/Proxima_Nova_Bold');
+}
+
+@font-face {
+  font-family: "Proxima Nova Light";
+  src: url('/assets/Proxima_Nova_Light');
+}
+
+.f {
+  display: flex;
+}
+
+.c {
+  flex-direction: column;
+}
+
+.r {
+  flex-direction: row;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Proxima Nova Bold', sans-serif;
+  background-color: #3778c2;
+  margin: 0;
+  color: #434b54
+}
+
+.notice {
+  margin: 0;
+}
+
+.alert {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.back-button {
+  color: #fff;
+  font-size: 2rem;
+  height: max-content
+}
+
+.top-bar {
+  color: #fff;
+  font-family: 'Proxima Nova Light', sans-serif;
+  padding: 0.5rem;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  height: 3rem;
+}
+
+.topbar-button {
+  color: #fff;
+  font-family: 'Proxima Nova Light', sans-serif;
+  background-color: transparent;
+  border: none;
+}
+
+.bottom-block {
+  height: 100%;
+  padding: 0.8rem 0.2rem 0.2rem;
+  background-color: #f0f2f1;
+  justify-content: center;
+}
+
+#sign-out-link {
+  color: #fff;
+  align-self: center;
+  text-align: center;
+}
+
+.top-bar .back-button {
+  height: 3rem;
+  align-items: center;
+}
+
+.field_with_errors {
+  display: flex;
+}
+
+.field_with_errors input {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
