@@ -17,14 +17,14 @@ class SpendsController < ApplicationController
     @user = current_user
     @category = Category.find(params[:category_id])
     @spend = Spend.new
-    @categories = Category.all
+    @categories = @user.categories
   end
 
   # POST /spends or /spends.json
   def create
     @user = current_user
     @category = Category.find(params[:category_id])
-    @categories = Category.all
+    @categories = @user.categories
     @spend = current_user.spends.new(spend_params.except(:category_ids))
 
     respond_to do |format|
