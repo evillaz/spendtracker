@@ -1,9 +1,15 @@
 class SpendsController < ApplicationController
+  load_and_authorize_resource
+  before_action :authenticate_user!
   before_action :set_spend, only: %i[show edit update destroy]
 
   # GET /spends or /spends.json
   def index
-    @spends = Spend.all
+    @user = current_user
+    @category = Category.find(params[:category_id])
+    @category_spends = CategorySpend.includes(:spend).joins(:spend).where(category_id: params[:category_id])
+    @spends = @category_spends.order(created_at: :desc).map(&:spend)
+    @total_spend = @category_spends.sum('spends.amount')
   end
 
   # GET /spends/1 or /spends/1.json
@@ -11,7 +17,10 @@ class SpendsController < ApplicationController
 
   # GET /spends/new
   def new
+    @user = current_user
+    @category = Category.find(params[:category_id])
     @spend = Spend.new
+    @categories = Category.all
   end
 
   # GET /spends/1/edit
@@ -19,28 +28,24 @@ class SpendsController < ApplicationController
 
   # POST /spends or /spends.json
   def create
-    @spend = Spend.new(spend_params)
+    @user = current_user
+    @category = Category.find(params[:category_id])
+    @categories = Category.all
+    @spend = current_user.spends.new(spend_params.except(:category_ids))
 
     respond_to do |format|
-      if @spend.save
-        format.html { redirect_to spend_url(@spend), notice: 'Spend was successfully created.' }
-        format.json { render :show, status: :created, location: @spend }
-      else
+      if params[:new_spend][:category_ids].reject(&:blank?).empty?
+        @spend.errors.add(:base, "Please select at least one category")
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @spend.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /spends/1 or /spends/1.json
-  def update
-    respond_to do |format|
-      if @spend.update(spend_params)
-        format.html { redirect_to spend_url(@spend), notice: 'Spend was successfully updated.' }
-        format.json { render :show, status: :ok, location: @spend }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @spend.errors, status: :unprocessable_entity }
+        if @spend.save
+          create_category_spends
+          format.html { redirect_to category_spends_url, notice: 'Spend was successfully created.' }
+          format.json { render :show, status: :created, location: @spend }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @spend.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -57,6 +62,15 @@ class SpendsController < ApplicationController
 
   private
 
+  def create_category_spends
+    category_ids = params[:new_spend][:category_ids]
+    category_ids.each do |category_id|
+      if category_id.present?
+        CategorySpend.create(category_id:, spend_id: @spend.id)
+      end
+    end
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_spend
     @spend = Spend.find(params[:id])
@@ -64,6 +78,6 @@ class SpendsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def spend_params
-    params.fetch(:spend, {})
+    params.require(:new_spend).permit(:name, :amount, :category_ids)
   end
 end
