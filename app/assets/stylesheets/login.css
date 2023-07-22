@@ -7,6 +7,11 @@
   padding: 0.2rem;
 }
 
+.login-form .bottom-block {
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .form form {
   align-items: flex-start;
   gap: 1rem;
