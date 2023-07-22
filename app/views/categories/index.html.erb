@@ -14,7 +14,10 @@
   <div class="top-bar f r">
     <%= link_to "←", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" }, class:"back-button f r" %>
     <h2 id="title">Categories</h2>
-    <%= link_to "New", new_category_path, class: 'topbar-button' %>
+    <div></div>
   </div>
   <%= render 'shared/category_info', categories: @categories, category_totals: @category_totals %>
+  <div class="create-button f">
+    <%= link_to "Add new category", new_category_path, class: 'new-button f' %>
+  </div>
 <% end %>

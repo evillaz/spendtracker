@@ -81,7 +81,6 @@ h3 {
 
 .topbar-button {
   color: #fff;
-  font-family: 'Proxima Nova Light', sans-serif;
   background-color: transparent;
   border: none;
 }
@@ -116,4 +115,30 @@ h3 {
   width: 100%;
   padding: 0;
   margin: 0;
+}
+
+.create-button {
+  height: 15%;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-button,
+.new-button {
+  background-color: #5fb523;
+}
+
+.new-button {
+  color: #fff;
+  width: 90%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.topbar-button,
+.new-button {
+  font-family: 'Proxima Nova Light', sans-serif;
 }
