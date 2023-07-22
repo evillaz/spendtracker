@@ -102,7 +102,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 - **[Live Demo Video!](https://www.loom.com/share/ccfa917102964ed0a6871c06355aa5e0)**
-- **[Live Demo!](https://spendtracker.onrender.com/categories)**
+- **[Live Demo!](https://spendtracker.onrender.com/)**
   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
