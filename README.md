@@ -56,9 +56,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Blog app] <a name="about-project"></a>
+# 📖 [SpendTracker] <a name="about-project"></a>
 
-**[Blog app]** will be a classic example of a blog website. You will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+**[SpendTracker]** is about building a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -90,11 +90,10 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-- **[Add new posts.]**
-- **[Add new comments to posts.]**
-- **[Like posts.]**
-- **[Save records.]**
-
+- **[Add new category.]**
+- **[List categories.]**
+- **[Add new category spend.]**
+- **[List category spends.]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,8 +116,8 @@ Clone this repository to your desired folder:
 Example commands:
 
 ```sh
-  cd blog-app
-  git clone git@github.com:evillaz/blog-app.git
+  cd spendtracker
+  git clone git@github.com:evillaz/spendtracker.git
 ```
 ### Install
 
@@ -127,7 +126,7 @@ Run this command:
 Example command:
 
 ```sh
-  cd blog-app
+  cd spendtracker
   npm bundle install
 ```
 
@@ -182,13 +181,8 @@ Visual studio code or with the very own ruby ird
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **[Setup and controllers.]**
-- **[Controllers specs.]**
-- **[Views.]**
-- **[Forms.]**
-- **[Integration specs for Views and fixing n+1 problems.]**
-- **[Add authorization rules.]**
-- **[Add API endpoints.]**
+- **[Update categories.]**
+- **[Update spends.]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -218,6 +212,8 @@ If you like this project  don't doubt on make any comments or try to reach me ou
 
 I would like to thank microverse for the opportunity on working each other as colleagues and the learning opportunities it brings us.
 
+I will also like to give credit for the [Benance Guidelines](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)), that i used for the styling of the project, to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio).
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional)
@@ -239,6 +235,8 @@ I would like to thank microverse for the opportunity on working each other as co
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](/LICENSE.MD) licensed.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+This project is [MIT](/LICENSE.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
