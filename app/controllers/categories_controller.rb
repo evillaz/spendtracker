@@ -5,13 +5,11 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @user = current_user
-    if @user.present?
-      @categories = @user.categories
-    end
+    @categories = @user.categories if @user.present?
     @category_totals = CategorySpend
-    .joins(:category, :spend)
-    .select('category_id, SUM(spends.amount) AS total_amount')
-    .group('category_id')
+      .joins(:category, :spend)
+      .select('category_id, SUM(spends.amount) AS total_amount')
+      .group('category_id')
   end
 
   # GET /categories/new

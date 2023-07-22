@@ -28,7 +28,8 @@
   height: 3rem;
 }
 
-.inputs-container input::placeholder, .bottom-block a {
+.inputs-container input::placeholder,
+.bottom-block a {
   color: #acaca4;
 }
 
@@ -36,7 +37,7 @@
   outline: none;
 }
 
-.inputs-container input[type="email"]{
+.inputs-container input[type="email"] {
   border-bottom: 1px solid #acaca4;
 }
 

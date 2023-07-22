@@ -4,13 +4,11 @@
   background-color: #fff;
 }
 
-.credit h3 {
+.credit h3,
+.credit span,
+.left-block {
   margin: 0;
-  font-family: 'Proxima Nova Light';
-}
-
-.credit span {
-  font-family: 'Proxima Nova Bold';
+  font-family: 'Proxima Nova Light', sans-serif;
 }
 
 .empty {
@@ -30,8 +28,4 @@
 .left-block {
   justify-content: space-between;
   height: 100%;
-}
-
-.left-block {
-  font-family: 'Proxima Nova Light', sans-serif;
 }

@@ -29,17 +29,15 @@ class SpendsController < ApplicationController
 
     respond_to do |format|
       if params[:new_spend][:category_ids].reject(&:blank?).empty?
-        @spend.errors.add(:base, "Please select at least one category")
+        @spend.errors.add(:base, 'Please select at least one category')
         format.html { render :new, status: :unprocessable_entity }
+      elsif @spend.save
+        create_category_spends
+        format.html { redirect_to category_spends_url, notice: 'Spend was successfully created.' }
+        format.json { render :show, status: :created, location: @spend }
       else
-        if @spend.save
-          create_category_spends
-          format.html { redirect_to category_spends_url, notice: 'Spend was successfully created.' }
-          format.json { render :show, status: :created, location: @spend }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @spend.errors, status: :unprocessable_entity }
-        end
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @spend.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,9 +47,7 @@ class SpendsController < ApplicationController
   def create_category_spends
     category_ids = params[:new_spend][:category_ids]
     category_ids.each do |category_id|
-      if category_id.present?
-        CategorySpend.create(category_id:, spend_id: @spend.id)
-      end
+      CategorySpend.create(category_id:, spend_id: @spend.id) if category_id.present?
     end
   end
 

@@ -1,12 +1,12 @@
 .block {
- height: 100%;
- padding: 1rem;
- background-color: #f0f2f1;
- gap: 1rem;
- overflow: scroll;
+  height: 100%;
+  padding: 1rem;
+  background-color: #f0f2f1;
+  gap: 1rem;
+  overflow: scroll;
 }
 
-.categories a { 
+.categories a {
   height: max-content;
 }
 
