@@ -1,0 +1,20 @@
+<div class="categories block f c">
+  <% if @categories.present? %>
+    <% categories.each do |c| %>
+    <a href="/categories/<%= c.id %>/spends">
+      <div class="element f r">
+        <div class="category-img">
+          <img src="<%= url_for(c.icon) %>" alt="categoryIcon">
+        </div>
+        <div class="category-info f r">
+          <h3 class="name"><%= c.name %></h3>
+          <% category_total = category_totals.find { |ct| ct.category_id == c.id } %>
+          <% total_amount = category_total ? category_total.total_amount : 0 %>
+          <span class="amount">$<%= total_amount %></span>
+        </div>
+      </div>
+    </a>
+    <% end %>
+  <% end %>
+</div> 
+

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :category_spends
-  resources :categories
-  resources :spends
+  resources :categories do
+    resources :spends
+  end
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "home#index"
+  root "categories#index"
 
   # Defines the root path route ("/")
   # root "articles#index"

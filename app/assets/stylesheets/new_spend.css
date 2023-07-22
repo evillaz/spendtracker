@@ -1,0 +1,17 @@
+.categories-check {
+  flex-wrap: wrap;
+}
+
+.categories-check label,
+#category-label {
+  display: flex;
+}
+
+.category-check {
+  align-items: center;
+}
+
+.spend-inputs input[type="text"],
+.spend-inputs input[type="number"] {
+  border-bottom: 1px solid #acaca4;
+}

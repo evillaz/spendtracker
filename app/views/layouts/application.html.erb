@@ -9,18 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= turbo_frame_tag "modal" %>
+  <body class="f c">
     <%= yield %>
-    <% if user_signed_in? %>
-      <div class="buttons">
-        <button class="btn">
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" }, id: "sign-out-link" %>
-        </button>
-        <%= link_to "← Go Back", "javascript:history.back()", class:"btn" %>
-      </div>
-    <% end %>
   </body>
 </html>
