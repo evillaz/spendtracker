@@ -12,9 +12,6 @@ class SpendsController < ApplicationController
     @total_spend = @category_spends.sum('spends.amount')
   end
 
-  # GET /spends/1 or /spends/1.json
-  def show; end
-
   # GET /spends/new
   def new
     @user = current_user
@@ -22,9 +19,6 @@ class SpendsController < ApplicationController
     @spend = Spend.new
     @categories = Category.all
   end
-
-  # GET /spends/1/edit
-  def edit; end
 
   # POST /spends or /spends.json
   def create
@@ -47,16 +41,6 @@ class SpendsController < ApplicationController
           format.json { render json: @spend.errors, status: :unprocessable_entity }
         end
       end
-    end
-  end
-
-  # DELETE /spends/1 or /spends/1.json
-  def destroy
-    @spend.destroy
-
-    respond_to do |format|
-      format.html { redirect_to spends_url, notice: 'Spend was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
