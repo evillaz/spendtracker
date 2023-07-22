@@ -1,0 +1,22 @@
+<div class="top-bar f r">
+  <%= render 'shared/back_button' %>
+  <h2><%= @category.name %></h2>
+  <div></div>
+</div>
+<div class="credit f r">
+  <h3>Total credit</h3>
+  <span class="total-spent">$<%= @total_spend %>0</span>
+</div>
+<div class="block f c">
+  <% if @spends.present? %>
+    <% @spends.each do |spend| %>
+      <%= render spend %>
+    <% end %>
+  <% else %>
+    <span class="empty f c">Create a new Spend on <%= @category.name %></span>
+  <% end %>
+</div>
+<div class="create-button f">
+  <%= link_to "Add new transaction", new_category_spend_path, class: 'new-button f' %>
+</div>
+

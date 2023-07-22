@@ -1,0 +1,54 @@
+.top-bar h2 {
+  height: max-content;
+}
+
+.login-form {
+  height: 100%;
+  padding: 0.2rem;
+}
+
+.login-form .bottom-block {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form form {
+  align-items: flex-start;
+  gap: 1rem;
+  border: none;
+}
+
+.inputs-container {
+  gap: 1rem;
+  padding-top: 1rem;
+  background-color: #f0f2f1;
+}
+
+.inputs-container label {
+  display: none;
+}
+
+.inputs-container input {
+  border: none;
+  height: 3rem;
+}
+
+.inputs-container input::placeholder,
+.bottom-block a {
+  color: #acaca4;
+}
+
+.inputs-container input:focus {
+  outline: none;
+}
+
+.inputs-container input[type="email"] {
+  border-bottom: 1px solid #acaca4;
+}
+
+.inputs {
+  padding-left: 1rem;
+  background-color: #fff;
+  border-top: 1px solid #acaca4;
+  border-bottom: 1px solid #acaca4;
+}

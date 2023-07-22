@@ -1,0 +1,23 @@
+<div class="login-form form f c">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="top-bar f r">
+      <%= render 'shared/back_button' %>
+      <h2>LOGIN</h2>
+      <%= f.submit "Log in", class: 'topbar-button' %>
+    </div>
+    <div class="inputs-container f c">
+      <div class="inputs f c">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+      </div> 
+    </div>
+  <% end %>
+  <div class="bottom-block f c">
+    <%= render "devise/shared/links" %>
+    <p class="notice" class="color"><%= notice %></p>
+    <p class="alert" class="color"><%= alert %></p>
+  </div>
+</div>
+

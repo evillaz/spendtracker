@@ -1,0 +1,4 @@
+.registration input[type="text"],
+.registration input[type="password"] {
+  border-bottom: 1px solid #acaca4;
+}

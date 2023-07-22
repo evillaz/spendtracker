@@ -1,0 +1,40 @@
+<div class="categories-form form f c">
+  <%= form_with model: @spend, url: category_spends_url(category), method: :post, scope: :new_spend, local: true do |form| %>
+    <div class="top-bar f r">
+      <%= link_to "←", category_spends_url, class:"back-button f" %>
+      <h2>New Spend</h2>
+      <%= form.submit "Save", class: 'topbar-button' %>
+    </div>
+    <div class="inputs-container f c">
+      <div class="spend-inputs inputs f c">
+
+        <%= form.label :name %>
+        <%= form.text_field :name, placeholder: 'Name' %> 
+
+        <%= form.label :amount %>
+        <%= form.number_field :amount, step: 0.01, class: "input", placeholder: 'Amount' %>
+        <%= form.label :category_ids, "Category: ", id: "category-label" %>
+        <div class="categories-check f">
+          <%= form.collection_check_boxes :category_ids, categories, :id, :name, checked: category.id do |category| %>
+            <div class="category-check f r">
+              <%= category.check_box %>
+              <%= category.label %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="bottom-block f">
+    <% if spend.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(spend.errors.count, "error") %> prohibited this spend from being saved:</h2>
+        <ul>
+          <% spend.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
