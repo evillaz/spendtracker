@@ -156,14 +156,15 @@ Now we are ready to run the app:
 ```sh
   rails server
 ```
-<!--
+
 ### Run tests
 
 Example command:
 
 ```sh
-  cd spec
-rspec *spec.rb
+  cd spendtracker
+  rails db:test:prepare
+  rspec spec
 ```
 -->
 
