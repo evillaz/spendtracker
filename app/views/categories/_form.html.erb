@@ -1,5 +1,22 @@
-<%= form_with(model: category) do |form| %>
-  <% if category.errors.any? %>
+<div class="categories-form form f c">
+  <%= form_with model: @category, url: categories_url, method: :post, scope: :new_category, local: true do |form| %>
+    <div class="top-bar f r">
+      <%= render 'shared/back_button' %>
+      <h2>New Category</h2>
+      <%= form.submit "Save", class: 'topbar-button' %>
+    </div>
+    <div class="inputs-container f c">
+      <div class="registration inputs f c">
+        <%= form.label :name %>
+        <%= form.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name' %>
+
+        <%= form.label :icon, 'Upload Icon File', id: 'icon' %>
+        <%= form.file_field :icon, autofocus: true, autocomplete: "icon" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="bottom-block f">
+    <% if category.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
@@ -9,9 +26,6 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.submit %>
+    <% end %>  
   </div>
-<% end %>
+</div>
