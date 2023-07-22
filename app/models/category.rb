@@ -5,6 +5,17 @@ class Category < ApplicationRecord
 
   has_one_attached :icon
 
-  validates :name, uniqueness: true, presence: true
-  validates :icon, presence: true
+  validates :name, :icon, presence: true
+
+  validate :unique_name_per_user
+
+  private
+
+  def unique_name_per_user
+    existing_category = Category.find_by(name:, user_id:)
+
+    return unless existing_category && existing_category.id != id
+
+    errors.add(:name, 'has already been taken by another category of the same user.')
+  end
 end
