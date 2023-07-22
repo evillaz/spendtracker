@@ -12,10 +12,10 @@ class Category < ApplicationRecord
   private
 
   def unique_name_per_user
-    existing_category = Category.find_by(name: name, user_id: user_id)
+    existing_category = Category.find_by(name:, user_id:)
 
-    if existing_category && existing_category.id != id
-      errors.add(:name, "has already been taken by another category of the same user.")
-    end
+    return unless existing_category && existing_category.id != id
+
+    errors.add(:name, 'has already been taken by another category of the same user.')
   end
 end
