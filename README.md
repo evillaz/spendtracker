@@ -39,6 +39,7 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -95,6 +96,14 @@ After you're finished please remove all the comments and instructions!
 - **[Add new category spend.]**
 - **[List category spends.]**
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+- **[Live Demo Video!](https://www.loom.com/share/ccfa917102964ed0a6871c06355aa5e0)**
+- **[Live Demo!](https://spendtracker.onrender.com/categories)**
+  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -169,7 +178,7 @@ Visual studio code or with the very own ruby ird
  
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Author <a name="authors"></a>
 
 👤 **Eduardo Villarreal**
 
